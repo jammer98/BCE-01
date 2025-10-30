@@ -4,7 +4,7 @@ import { ApiResponse } from "../utlis/ApiResponse.js"
 
 const register = asyncHandler( async (req,res) =>{
     res.status(200).json({
-        message: "ok"
+        message:"ok"
     })
 })
 
