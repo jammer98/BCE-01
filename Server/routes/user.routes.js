@@ -6,4 +6,4 @@ const router = Router();
 router.route("/register").post(register)
 router.route("/").get(getAllUser)
 
-export default router
+export default router 
