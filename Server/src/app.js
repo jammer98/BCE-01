@@ -7,12 +7,12 @@ app.use(cors({
     origin:process.env.CORS_ORIGIN
 }))
 app.use(express.json());
-
-
+app.use(express.urlencoded({ extended : true})) // for form data 
 
 // router import
 import userRouter from '../routes/user.routes.js'
 
 app.use("/api/v1/users",userRouter);
 
-export { app } ;
+
+export { app };

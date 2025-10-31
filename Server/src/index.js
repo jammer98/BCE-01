@@ -4,20 +4,22 @@ import { app } from './app.js';
 dotenv.config()
 
 connectDB()
-.then( ()=>{
-
+.then(()=>{
   app.on("error",(error)=>{
-    console.log("error :",error);
-    throw error;
+    console.log(" Server error :",error);
+    process.exit(1);
   })
-
 
   app.listen(process.env.PORT || 4000 , ()=>{
     console.log(`App is listening on port :${process.env.PORT}`);
     console.log(`App is running of the port : http://localhost:${process.env.PORT}/`)
   })
 })
-.catch((error) => console.log("DATABASE CONNECTION ERROR",error));
+.catch((error) => {
+    console.log("DATABASE CONNECTION ERROR",error);
+    process.exit(1);
+
+})
 
 
 

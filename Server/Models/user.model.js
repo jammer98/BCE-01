@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema(
             trim:true
         },
         githubUsername:{
-            trype:String,
+            type:String,
             required:true,
             trim:true
         }
