@@ -1,1 +1,14 @@
 @import "tailwindcss";
+
+
+@font-face {
+    font-family: "weekendFont";
+    src: url("../public/fonts/Amagro.ttf") format("truetype");
+    font-weight: normal;
+    font-size:normal;
+    font-style: normal;
+}
+
+.custom-font{
+    font-family: "weekendFont", sans-serif;
+}
