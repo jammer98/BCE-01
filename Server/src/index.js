@@ -10,7 +10,7 @@ connectDB()
     process.exit(1);
   })
 
-  app.listen(process.env.PORT || 4000 , ()=>{
+  app.listen(process.env.PORT, ()=>{
     console.log(`App is listening on port :${process.env.PORT}`);
     console.log(`App is running of the port : http://localhost:${process.env.PORT}/`)
   })

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "https://localhost:3000/api/v1/",
+    baseURL: "http://localhost:4000/api/v1",
     headers:{
         "Content-Type":"application/json",
     }
@@ -20,7 +20,7 @@ const registerUser = async(userData) =>{
 
 const getAllUsers = async() =>{
     try {
-        const response = await api.get("/");
+        const response = await api.get("/Users");
         return response.data;
     } catch (error) {
         console.log("ERROR IN FETCHING THE USERS",error);
