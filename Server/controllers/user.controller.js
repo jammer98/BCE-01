@@ -31,6 +31,17 @@ const getAllUser = asyncHandler(async(req,res)=>{
     res.status(200).json(response)
 })
 
+const getUserById = asyncHandler(async(req,res) =>{
+    const { id } = req.params;
 
+    const user = await User.findById(id);
 
-export {register,getAllUser}
+    if(!user){
+        throw new ApiError(404,"User not found")
+    }
+
+    const response = new ApiResponse(200,"User fetched Successfully",user)
+    res.status(200).json(response)
+})
+
+export {register,getAllUser,getUserById}

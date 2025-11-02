@@ -3,6 +3,7 @@ import LoginPage from "./components/LoginPage"
 import Users from "./components/Users"
 import "react-router"
 import HomePage from "./components/HomePage"
+import SingleUser from "./components/SingleUser"
 
 function App() {
  
@@ -17,6 +18,9 @@ function App() {
         </Route>
         <Route path="/users"
                 element={<Users/>}>
+        </Route>
+        <Route path="/users/:id"
+                element={<SingleUser/>}>
         </Route>
       </Routes>
     </>

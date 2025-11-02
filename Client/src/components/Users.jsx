@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { getAllUsers } from '../Services/Api'
+import { useNavigate } from 'react-router';
 
 function Users() {
 
+    const navigate = useNavigate();
     const [users,setUsers] = useState([]);
      
     const fetchAllUsers = async () =>{
@@ -29,10 +31,10 @@ function Users() {
                 <h1 className='text-xl tracking-wider'>ALL THE REGISTERED GIT-HUB DEVS</h1>
             </div>
             
-            <div className='flex flex-wrap mb-5 mt-24 justify-center items-center rounded-2xl bg-black p-4 h-screen overflow-y-auto w-full'>
+            <div className='flex flex-wrap mt-24 justify-center items-center bg-black p-4 h-screen overflow-y-auto w-full'>
                 {users.map((user)=>(
-                    <div key={user._id} className='bg-white rounded-2xl p-3 text-center flex flex-col justify-center items-center gap-2 w-70 shadow-lg shadow-green-400/50'>
-                        <div className='bg-neutral-200 w-full flex justify-center items-center rounded-2xl'>
+                    <div key={user._id} className='bg-white rounded-2xl p-3 text-center flex flex-col justify-center items-center gap-2 w-80 shadow-lg shadow-green-400/50'>
+                        <button onClick={() => navigate(`/users/${user._id}`)} className='bg-neutral-300 w-full flex justify-center items-center rounded-2xl hover:bg-neutral-200 cursor-pointer transition-all duration-200 p-2'>
                             <svg xmlns="http://www.w3.org/2000/svg" 
                                 fill="none" 
                                 viewBox="0 0 24 24" 
@@ -41,14 +43,14 @@ function Users() {
                                 className="size-15">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                             </svg>
-                        </div>
+                        </button>
                     <h3 className='p-2 text-xl'> username : {user.username}</h3>
                     <p className='p-2 text-xl'> fullname : {user.fullname}</p>
                     <p className='p-2 text-xl'> email : {user.email}</p>
                     <a href={`https://github.com/${user.githubUsername}`} target='_blank' className='text-white inline-block text-xl bg-sky-400 p-2 rounded-full hover:bg-sky-300 hover:text-black transition-all duration-200 w-full'>
                         Github : {user.githubUsername}
                     </a>
-                    <div className='flex justify-center items-center gap-20 mt-2 w-full'>
+                    <div className='flex justify-center items-center gap-30 mt-2 w-full'>
                         <button className='bg-red-600 p-2 text-white rounded-full hover:bg-red-400 hover:text-black cursor-pointer transition-all duration-200 '>
                             <svg xmlns="http://www.w3.org/2000/svg" 
                                 fill="none" 
@@ -76,8 +78,8 @@ function Users() {
                             </button>
                     </div>
                     </div>
-                ))}
-            </div> 
+                ))} 
+            </div>
         </div>   
         } 
     </div>

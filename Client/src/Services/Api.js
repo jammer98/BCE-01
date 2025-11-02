@@ -28,4 +28,14 @@ const getAllUsers = async() =>{
     }
 }
 
-export {registerUser,getAllUsers}
+const getUserById = async(Id) =>{
+    try {
+        const response = await api.get(`/users/${Id}`);
+        return response.data;
+    } catch (error) {
+        console.log("ERROR IN FETCHING THE USER BY ID",error);
+        throw error.response?.data || {message:"something went wrong"}; 
+    }
+}
+
+export {registerUser,getAllUsers,getUserById}
