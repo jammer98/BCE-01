@@ -32,4 +32,5 @@ const getAllUser = asyncHandler(async(req,res)=>{
 })
 
 
+
 export {register,getAllUser}
