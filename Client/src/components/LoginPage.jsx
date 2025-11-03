@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { registerUser } from '../Services/Api';
+import { useNavigate } from 'react-router';
 // import { useNavigate } from 'react-router';
 
 function LoginPage() {
@@ -13,7 +14,7 @@ function LoginPage() {
 
   const [loading , setLoading] = useState(false);
 
-  // const navigate = useNavigate();
+  const navigate  = useNavigate();
 
 
   const handelOnChange =(e) =>{
@@ -27,7 +28,7 @@ function LoginPage() {
           const res = await registerUser(formdata);
           alert(res.message);
           setFormdata({username:"",fullname:"",email:"",githubUsername:""})
-          // navigate("/users");
+          navigate('/users');
 
         } catch (error) {
           alert("Failed to register user!");

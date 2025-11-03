@@ -20,7 +20,7 @@ const registerUser = async(userData) =>{
 
 const getAllUsers = async() =>{
     try {
-        const response = await api.get("/Users");
+        const response = await api.get("/users");
         return response.data;
     } catch (error) {
         console.log("ERROR IN FETCHING THE USERS",error);
@@ -33,7 +33,7 @@ const getUserById = async(Id) =>{
         const response = await api.get(`/users/${Id}`);
         return response.data;
     } catch (error) {
-        console.log("ERROR IN FETCHING THE USER BY ID",error);
+        console.log("ERROR IN FETCHING THE USER BY ID teriiii",error);
         throw error.response?.data || {message:"something went wrong"}; 
     }
 }

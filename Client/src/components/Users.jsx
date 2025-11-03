@@ -20,6 +20,10 @@ function Users() {
         fetchAllUsers();
     },[])
 
+    const handleClick = (id) =>{
+        navigate(`/users/${id}`);
+    }
+
   return (
 
 
@@ -31,10 +35,10 @@ function Users() {
                 <h1 className='text-xl tracking-wider'>ALL THE REGISTERED GIT-HUB DEVS</h1>
             </div>
             
-            <div className='flex flex-wrap mt-24 justify-center items-center bg-black p-4 h-screen overflow-y-auto w-full'>
+            <div className='flex flex-wrap mt-24 justify-center items-center bg-black p-4 h-screen overflow-y-auto w-full gap-10'>
                 {users.map((user)=>(
                     <div key={user._id} className='bg-white rounded-2xl p-3 text-center flex flex-col justify-center items-center gap-2 w-80 shadow-lg shadow-green-400/50'>
-                        <button onClick={() => navigate(`/users/${user._id}`)} className='bg-neutral-300 w-full flex justify-center items-center rounded-2xl hover:bg-neutral-200 cursor-pointer transition-all duration-200 p-2'>
+                        <button onClick={() => handleClick(user._id)} className='bg-neutral-300 w-full flex justify-center items-center rounded-2xl hover:bg-neutral-200 cursor-pointer transition-all duration-200 p-2'>
                             <svg xmlns="http://www.w3.org/2000/svg" 
                                 fill="none" 
                                 viewBox="0 0 24 24" 

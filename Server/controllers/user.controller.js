@@ -26,22 +26,28 @@ const register = asyncHandler( async (req,res) =>{
 })
 
 const getAllUser = asyncHandler(async(req,res)=>{
+
+    console.log("this route is hitting ");
     const users = await User.find().sort({createdAt:-1})
     const response = new ApiResponse(200,"Users fetched Successfully",users)
+    
     res.status(200).json(response)
 })
 
-const getUserById = asyncHandler(async(req,res) =>{
-    const { id } = req.params;
 
-    const user = await User.findById(id);
+const getUserById = asyncHandler(async (req, res) => {
+  console.log(`🔍 Route HIT! ID param: ${req.params.id}`); // This should log on every call
 
-    if(!user){
-        throw new ApiError(404,"User not found")
-    }
+  const { id } = req.params;
+  const user = await User.findById(id);
+  console.log(`DB Result: User found? ${!!user}`); // Logs if user exists
 
-    const response = new ApiResponse(200,"User fetched Successfully",user)
-    res.status(200).json(response)
-})
+  if (!user) {
+    throw new ApiError(404, "User not found");
+  }
+
+  const response = new ApiResponse(200, "User fetched Successfully", user);
+  res.status(200).json(response);
+});
 
 export {register,getAllUser,getUserById}
