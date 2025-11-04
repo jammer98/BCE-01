@@ -37,6 +37,9 @@ const getAllUser = asyncHandler(async(req,res)=>{
 
 const getUserById = asyncHandler(async (req, res) => {
   const id = req.params.id;
+   if (!mongoose.Types.ObjectId.isValid(id)) {
+    throw new ApiError(400, "Invalid MongoDB ID");
+  }
   console.log(`Fetching user with ID: ${id}`);
 
   const user =  await User.findById(id);
