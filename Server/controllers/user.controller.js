@@ -36,18 +36,40 @@ const getAllUser = asyncHandler(async(req,res)=>{
 
 
 const getUserById = asyncHandler(async (req, res) => {
-  console.log(`🔍 Route HIT! ID param: ${req.params.id}`); // This should log on every call
+  const id = req.params.id;
+  console.log(`Fetching user with ID: ${id}`);
 
-  const { id } = req.params;
-  const user = await User.findById(id);
-  console.log(`DB Result: User found? ${!!user}`); // Logs if user exists
+  const user =  await User.findById(id);
 
-  if (!user) {
-    throw new ApiError(404, "User not found");
+  if(!user){
+    throw new ApiError(404,"user not found");
   }
 
-  const response = new ApiResponse(200, "User fetched Successfully", user);
+  const response = new ApiResponse(200,"User fetched Successfully",user);
   res.status(200).json(response);
-});
+})
 
-export {register,getAllUser,getUserById}
+const updateUser = asyncHandler(async (req,res) =>{
+  const id = req.params.id;
+  console.log(`Updating user with ID: ${id}`);
+
+  const { username, fullname, email, githubUsername } = req.body;
+
+  const existingUser = await User.findById(id);
+
+  if (!existingUser) {
+    throw new ApiError(404, "user not found");
+  }
+
+  existingUser.username = username || existingUser.username;
+  existingUser.fullname = fullname || existingUser.fullname;
+  existingUser.email = email || existingUser.email;
+  existingUser.githubUsername = githubUsername || existingUser.githubUsername;
+
+  const updatedUser = await existingUser.save();
+
+  const response = new ApiResponse(200, "User updated Successfully", updatedUser);
+  res.status(200).json(response);
+})
+
+export {register,getAllUser,getUserById,updateUser}
