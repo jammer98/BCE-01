@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { register , getAllUser,getUserById,updateUser} from "../controllers/user.controller.js";
+import { register , getAllUser, getUserById} from "../controllers/user.controller.js";
 
 const router = Router();
 
@@ -7,7 +7,7 @@ const router = Router();
 router.route("/users").get(getAllUser)
 router.route("/register").post(register)
 router.route("/users/:id").get(getUserById)
-router.route("/users/:id").put(updateUser)
+// router.route("/users/:id").put(updateUser)
 // // router.get("/test/:id", (req, res) => res.json({ id: req.params.id })); // Should hit /api/v1/test/abc
 // router.get("/debug/:id", (req, res) => {
 //   res.json({ message: "Debug route hit", id: req.params.id });

@@ -28,9 +28,9 @@ const getAllUsers = async() =>{
     }
 }
 
-const getUserById = async(Id) =>{
+const getUserById = async(id) =>{
     try {
-        const response = await api.get(`/users/${Id}`);
+        const response = await api.get(`/users/${id}`);
         return response.data;
     } catch (error) {
         console.log("ERROR IN FETCHING THE USER BY ID teriiii",error);
