@@ -40,7 +40,7 @@ const getUserById = async(id) =>{
 
 const UpdateUserById = async (id, updatedData) => {
   try {
-    const response = await api.patch(`/users/${id}`, updatedData);
+    const response = await api.put (`/users/${id}/edit`, updatedData);
     return response.data;
   } catch (error) {
     console.log("ERROR IN UPDATING THE USER BY ID", error);
@@ -55,7 +55,7 @@ const UpdateUserById = async (id, updatedData) => {
   }
 };
 
-const deleteUser = async (id) => {
+const DeleteUser = async (id) => {
   try {
     const response = await api.delete(`/users/${id}`);
     return response.data;
@@ -68,4 +68,4 @@ const deleteUser = async (id) => {
   }
 };
 
-export {registerUser,getAllUsers,getUserById, UpdateUserById, deleteUser }
+export {registerUser,getAllUsers,getUserById, UpdateUserById,DeleteUser}

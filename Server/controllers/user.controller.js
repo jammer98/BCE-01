@@ -154,8 +154,19 @@ const UpdateUser = asyncHandler(async(req,res) =>{
     const response = new ApiResponse(200, "User update successfully", updateUser);
     res.status(200).json(response);
 
+  })
 
+  const DeleteUser = asyncHandler(async(req,res) =>{
+    const id = req.params.id;
+
+    const exisitingUser = await User.findByIdAndDelete(id);
+    if(!exisitingUser){
+      throw new ApiError(404,"user not found");
+    } 
+
+    const response = new ApiResponse(204,"User deleted successfully",null);
+    res.status(204).json(response);
 
   })
 
-export {register,getAllUser,getUserById, UpdateUser}
+export {register,getAllUser,getUserById, UpdateUser, DeleteUser}

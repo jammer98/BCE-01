@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate, useLocation } from 'react-router';
-import { UpdateUserById, getUserById } from '../Services/Api.js';
+import { UpdateUserById, getUserById} from '../Services/Api.js';
 
 function UpdateUser() {
   const { id } = useParams();

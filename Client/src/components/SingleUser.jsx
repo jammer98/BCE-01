@@ -1,5 +1,5 @@
 import React from 'react'
-import {getUserById, deleteUser} from '../Services/Api.js';
+import {getUserById, DeleteUser} from '../Services/Api.js';
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router';
 
@@ -31,7 +31,7 @@ function SingleUser() {
   const handleDelete = async () => {
     if (window.confirm('Are you sure you want to delete this user?')) {
       try {
-        await deleteUser(id);
+        await DeleteUser(id);
         navigate('/users');
       } catch (err) {
         setError('Failed to delete user');
