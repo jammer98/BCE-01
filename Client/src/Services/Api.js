@@ -38,4 +38,34 @@ const getUserById = async(id) =>{
     }
 }
 
-export {registerUser,getAllUsers,getUserById}
+const UpdateUserById = async (id, updatedData) => {
+  try {
+    const response = await api.patch(`/users/${id}`, updatedData);
+    return response.data;
+  } catch (error) {
+    console.log("ERROR IN UPDATING THE USER BY ID", error);
+
+    // Return detailed API error if it exists
+    if (error.response) {
+      throw error.response.data;
+    }
+
+    // Otherwise return generic error
+    throw { message: error.message || "Something went wrong" };
+  }
+};
+
+const deleteUser = async (id) => {
+  try {
+    const response = await api.delete(`/users/${id}`);
+    return response.data;
+  } catch (error) {
+    console.log("ERROR IN DELETING THE USER", error);
+    if (error.response) {
+      throw error.response.data;
+    }
+    throw { message: error.message || "Something went wrong" };
+  }
+};
+
+export {registerUser,getAllUsers,getUserById, UpdateUserById, deleteUser }

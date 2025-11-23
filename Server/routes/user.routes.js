@@ -7,7 +7,7 @@ const router = Router();
 router.route("/users").get(getAllUser)
 router.route("/register").post(register)
 router.route("/users/:id").get(getUserById)
-router.route("/users/:id").put(UpdateUser)
+router.route("/users/:id").patch(UpdateUser)
 // router.route("/users/:id").put(updateUser)
 // // router.get("/test/:id", (req, res) => res.json({ id: req.params.id })); // Should hit /api/v1/test/abc
 // router.get("/debug/:id", (req, res) => {
