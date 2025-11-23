@@ -41,24 +41,25 @@ function LoginPage() {
 
 
   return (
-    <div className='h-screen w-screen bg-neutral-400 flex justify-center items-center'>
+    <div className='h-screen w-screen bg-black flex justify-center items-center'>
 
       <form action="submit" onSubmit={handleSubmitForm} className='p-7 w-xl'>
                 <div className='bg-black flex flex-col p-10 rounded-xl shadow-xl shadow-yellow-300 gap-4 border-2 border-yellow-200'>
                     <h1 className='text-yellow-300 text-shadow-2xs text-shadow-yellow-300 text-4xl bg-black w-full py-4 px-2 rounded-2xl max-w-full text-center font-serif'>Enter your Details here</h1>
-                    <input type="text" name='username' value={formdata.username} onChange={handelOnChange} placeholder='Enter your username *' required className='m-2  rounded-xl bg-neutral-300 hover:bg-white p-3 focus:outline-3 outline-yellow-300 text-black border-4 border-yellow-200'/>
+                    <label htmlFor="text" name="username" > <div className='flex items-center gap-2'><p className='text-yellow-400'>username</p> <p className='text-red-600'>*</p></div> </label>
+                    <input type="text" name='username' value={formdata.username} onChange={handelOnChange} required className='rounded-xl bg-black p-3  text-yellow-400 border-2 border-yellow-200'/>
+
+                    <label htmlFor="text" name="fullname" > <div className='flex items-center gap-2'><p className='text-yellow-400'>fullname</p> <p className='text-red-600'>*</p></div> </label>
+                    <input type="text" name='fullname' value={formdata.fullname} onChange={handelOnChange} required className=' rounded-xl bg-black p-3 text-yellow-400 border-2 border-yellow-200'/> 
+
+                    <label htmlFor="email" name="email" > <div className='flex items-center gap-2'><p className='text-yellow-400'>email</p> <p className='text-red-600'>*</p></div> </label>  
+                    <input type="email" name='email' value={formdata.email} onChange={handelOnChange} required className='rounded-xl bg-black p-3  text-yellow-400 border-2 border-yellow-200'/>
 
 
-                    <input type="text" name='fullname' value={formdata.fullname} onChange={handelOnChange} placeholder='Enter you name *' required className='m-2  rounded-xl bg-neutral-300 hover:bg-white p-3 focus:outline-3 outline-yellow-300 text-black border-4 border-yellow-200'/>
+                    <label htmlFor="text" name="githubUsername" > <div className='flex items-center gap-2'><p className='text-yellow-400'>githubUsername</p> <p className='text-red-600'>*</p></div> </label> 
+                    <input type="text"  name='githubUsername'  value={formdata.githubUsername} onChange={handelOnChange} required className='rounded-xl bg-black p-3  text-yellow-400 border-2 border-yellow-200'/>
 
-
-                    <input type="email" name='email' value={formdata.email} onChange={handelOnChange} placeholder='Enter your email *' required className='m-2  rounded-xl bg-neutral-300 hover:bg-white p-3 focus:outline-3 outline-yellow-300 text-black border-4 border-yellow-200'/>
-
-
-                    <input type="text"  name='githubUsername'  value={formdata.githubUsername} onChange={handelOnChange} placeholder='Enter your github Profile *' required className='m-2  rounded-xl bg-neutral-300 hover:bg-white p-3 focus:outline-3 outline-yellow-300 text-black border-4 border-yellow-200'/>
-
-
-                    <div className='text-center '><button  type="submit" className='rounded-xl py-4 px-3 bg-yellow-300 hover:bg-yellow-200 cursor-pointer w-full text-black text-2xl transition-all'>{loading ? "submitting..." : "Submit User"}</button></div>
+                    <div className='text-center '><button  type="submit" className=' mt-2 rounded-xl py-4 px-3 bg-yellow-300 hover:bg-yellow-200 cursor-pointer w-full text-black text-2xl transition-all'>{loading ? "submitting..." : "Submit User"}</button></div>
                 </div>
       </form>
 
