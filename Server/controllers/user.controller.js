@@ -132,4 +132,30 @@ const getAllUser = asyncHandler(async(req,res)=>{
 //   res.status(200).json(response);
 // })
 
-export {register,getAllUser,getUserById}
+
+const UpdateUser = asyncHandler(async(req,res) =>{
+    const id = req.params.id;
+
+    const {username , fullname ,email, githubUsername} =  req.body;
+
+    const existingUser = await User.findById(id);
+
+    if(!existingUser){
+      throw new ApiError(404,"user not found");
+    }
+
+    existingUser.username = username || existingUser.username;
+    existingUser.fullname = fullname || existingUser.fullname;
+    existingUser.email = email || existingUser.email;
+    existingUser.githubUsername = githubUsername || existingUser.githubUsername;
+
+    const updateUser = await existingUser.save();
+
+    const response = new ApiResponse(200, "User update successfully", updateUser);
+    res.status(200).json(response);
+
+
+
+  })
+
+export {register,getAllUser,getUserById, UpdateUser}
