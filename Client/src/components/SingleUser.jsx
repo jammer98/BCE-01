@@ -47,10 +47,13 @@ function SingleUser() {
   if (error) return <div className='bg-gray-700 text-white flex justify-center items-center h-screen'>Error: {error}</div>;
 
   return (
-    <div className='bg-gray-700 text-white flex justify-center items-center h-screen w-full'>
-      <div className='w-xl bg-neutral-200 text-neutral-900 p-8 rounded-lg shadow-lg'>
+    <div className='bg-black text-white flex justify-center items-center h-screen w-full'>
+      <div className='w-xl bg-neutral-900 text-white p-8 rounded-lg shadow-md shadow-yellow-400'>
         {user && (
           <>
+          <div className='w-full p-4 py-6 bg-black text-center  shadow-lg shadow-yellow-300 fixed top-0 left-0 text-white'>
+                <h1 className='text-xl tracking-wider text-yellow-300'> GIT-HUB DEV : {user.fullname.toUpperCase()}</h1>
+            </div>
             <h1 className='text-3xl font-bold mb-6'>{user.name}</h1>
             <div className='space-y-4 mb-6'>
               <p><strong>Username:</strong> {user.username}</p>
