@@ -51,8 +51,24 @@ function SingleUser() {
       <div className='w-xl bg-neutral-900 text-white p-8 rounded-lg shadow-md shadow-yellow-400'>
         {user && (
           <>
-          <div className='w-full p-4 py-6 bg-black text-center  shadow-lg shadow-yellow-300 fixed top-0 left-0 text-white'>
-                <h1 className='text-xl tracking-wider text-yellow-300'> GIT-HUB DEV : {user.fullname.toUpperCase()}</h1>
+          <div className=' flex justify-between items-center w-full p-4 py-6 bg-black text-center  shadow-lg shadow-yellow-300 fixed top-0 left-0 text-white'>
+            <button className='rounded-full bg-yellow-300 py-1 px-2 text-black cursor-pointer  hover:bg-yellow-300 hover:text-black transition-all duration-200  '>
+              <svg xmlns="http://www.w3.org/2000/svg" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              strokeWidth="1.5" 
+              stroke="currentColor" 
+              className="size-7">
+              <path strokeLinecap="round" 
+              strokeLinejoin="round" 
+              d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
+              </svg>
+            </button >
+
+            <h1 className='text-xl tracking-wider text-yellow-300'> GIT-HUB DEV : {user.fullname.toUpperCase()}</h1>
+
+            <div></div>
+
             </div>
             <h1 className='text-3xl font-bold mb-6'>{user.name}</h1>
             <div className='space-y-4 mb-6'>
