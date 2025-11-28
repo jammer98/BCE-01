@@ -49,12 +49,12 @@ function UpdateUser() {
     }
   };
 
-  if (loading && !formData.name) return <div className='bg-gray-700 text-white flex justify-center items-center h-screen'>Loading...</div>;
+  if (loading && !formData.name) return <div className='bg-black text-white flex justify-center items-center h-screen'>Loading...</div>;
 
   return (
-    <div className='bg-gray-700 text-white flex justify-center items-center min-h-screen w-full p-4'>
-      <div className='w-full max-w-md bg-neutral-200 text-neutral-900 p-8 rounded-lg shadow-lg'>
-        <h1 className='text-3xl font-bold mb-6'>Update User</h1>
+    <div className='bg-black text-white flex justify-center items-center min-h-screen w-full p-4'>
+      <div className='w-full max-w-md bg-neutral-900 p-8 rounded-lg shadow-lg shadow-yellow-400'>
+        <h1 className='text-3xl font-bold mb-6 text-yellow-300 text-center'>Update User</h1>
         
         {error && <div className='bg-red-500 text-white p-3 rounded mb-4'>{error}</div>}
         {success && <div className='bg-green-500 text-white p-3 rounded mb-4'>{success}</div>}
@@ -78,7 +78,7 @@ function UpdateUser() {
           </div>
 
           <div className='flex gap-4 mt-6'>
-            <button type='submit' disabled={loading} className='flex-1 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded cursor-pointer transition-all duration-200'>
+            <button type='submit' disabled={loading} className='flex-1 bg-yellow-300 hover:bg-yellow-200 text-black font-semibold px-4 py-2 rounded cursor-pointer transition-all duration-200'>
               {loading ? 'Saving...' : 'Save Changes'}
             </button>
             <button type='button' onClick={() => navigate(`/users/${id}`)} className='flex-1 bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded cursor-pointer transition-all duration-200'>
